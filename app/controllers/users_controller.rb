@@ -18,7 +18,15 @@ class UsersController < ApplicationController
   end
   
   def edit
-    @user = User.find(params[:id])
+    if current_user != User.find(params[:id])
+      flash[:danger] = "You don't have authority to do this."
+      redirect_to root_path
+    elsif logged_in?
+      @user = User.find(params[:id])
+    else
+      flash[:danger] = "To do that thing, please log in."
+      redirect_to login_path
+    end
   end
   
   def update
