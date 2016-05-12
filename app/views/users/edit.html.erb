@@ -1,0 +1,22 @@
+<h1>Edit profile</h1>
+
+<div class="row">
+
+<div class="col-md-6 col-md-offset-3">
+<%= form_for(@user) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <%= f.label :location %>
+  <%= f.text_field :location, class: 'form-control' %>
+  
+  <%= f.label :hobby %>
+  <%= f.text_field :hobby, class: 'form-control' %>
+
+  <%= f.label :introduce %>
+  <%= f.text_area :introduce, class: 'form-control' %>
+
+ <%= f.submit "Edit completed!", class: 'btn btn-primary' %>
+ 
+<% end %>
+</div>
+</div>

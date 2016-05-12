@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       redirect_to @user
     else
       flash[:danger] = 'invaild email/password combination'
-      rener 'new'
+      render 'new'
     end
   end
   
