@@ -5,10 +5,13 @@
 <div class="row">
 
 <div class="col-md-6 col-md-offset-3">
-  <p><span style="font-weight: Bold">Location</span> : <%= @user.location %></p>
-  <p><span style="font-weight: Bold">Hobby</span> : <%= @user.hobby %></p>
-  <p><span style="font-weight: Bold">Introduce</span> : <%= @user.introduce %></p>
-  <p><%= link_to "Edit profile", edit_user_path %></p>
+  <p><span>Location</span> : <%= @user.location %></p>
+  <p><span>Hobby</span> : <%= @user.hobby %></p>
+  <p><span>Introduce</span> : <%= @user.introduce %></p>
+  <% if current_user == User.find(params[:id]) %>
+    <p><%= link_to "Edit profile", edit_user_path %></p>
+    <p></p>
+  <% end %>
 </div>
 
 </div>
