@@ -1,16 +1,27 @@
-<h1>
-  <%= gravatar_for @user %>
-  <%= @user.name %>
-</h1>
 <div class="row">
+  
+<aside class="col-md-4">
+<section class="user-info">
+  <h1>
+    <%= gravatar_for @user %>
+    <%= @user.name %>
+  </h1>
+  <p>Location : <%= @user.location %></p>
+  <p>Hobby : <%= @user.hobby %></p>
+  <p>Introduce : <%= @user.introduce %></p>
+<% if current_user == User.find(params[:id]) %>
+  <p><%= link_to "Edit profile", edit_user_path %></p>
+<% end %>
+</section>
+</aside>
 
-<div class="col-md-6 col-md-offset-3">
-  <p><span>Location</span> : <%= @user.location %></p>
-  <p><span>Hobby</span> : <%= @user.hobby %></p>
-  <p><span>Introduce</span> : <%= @user.introduce %></p>
-  <% if current_user == User.find(params[:id]) %>
-    <p><%= link_to "Edit profile", edit_user_path %></p>
-  <% end %>
+<div class="col-md-8">
+<% if @user.microposts.any? %>
+  <h3>Microposts (<%= @user.microposts.count %>)</h3>
+  <ol class="microposts">
+    <%= render @microposts %>
+  </ol>
+<% end %>
 </div>
 
-</div>
+</div> <!-- row -->

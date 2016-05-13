@@ -9,4 +9,6 @@ class User < ActiveRecord::Base
   validates :introduce, length: { maximum: 200 }
   
   has_secure_password
+  
+  has_many :microposts
 end
