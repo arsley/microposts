@@ -1,19 +1,6 @@
 <div class="row">
   
-<aside class="col-md-4">
-<section class="user-info">
-  <h1>
-    <%= gravatar_for @user %>
-    <%= @user.name %>
-  </h1>
-  <p>Location : <%= @user.location %></p>
-  <p>Hobby : <%= @user.hobby %></p>
-  <p>Introduce : <%= @user.introduce %></p>
-<% if current_user == User.find(params[:id]) %>
-  <p><%= link_to "Edit profile", edit_user_path %></p>
-<% end %>
-</section>
-</aside>
+<%= render 'layouts/aside' %>
 
 <div class="col-md-8">
 <%= render 'follow_form' if logged_in? %>

@@ -1,0 +1,18 @@
+<aside class="col-md-4">
+<section class="user-info">
+  <h1>
+    <%= gravatar_for @user %>
+    <%= @user.name %>
+  </h1>
+  <p>Location : <%= @user.location %></p>
+  <p>Hobby : <%= @user.hobby %></p>
+  <p>Introduce : <%= @user.introduce %></p>
+  <p>
+    <%= link_to "Followings", followings_user_path %>
+    <%= link_to "Followers" , followers_user_path %>
+  </p>
+<% if current_user == User.find(params[:id]) %>
+  <p><%= link_to "Edit profile", edit_user_path %></p>
+<% end %>
+</section>
+</aside>
