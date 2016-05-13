@@ -10,7 +10,6 @@
   <p><span>Introduce</span> : <%= @user.introduce %></p>
   <% if current_user == User.find(params[:id]) %>
     <p><%= link_to "Edit profile", edit_user_path %></p>
-    <p></p>
   <% end %>
 </div>
 
